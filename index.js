@@ -2,13 +2,15 @@
 var AWS = require('aws-sdk');
 // Load credentials and set region from JSON file
 //AWS.config.loadFromPath('./config.json');
+AWS.config.region = 'us-east-1';
+AWS.config.credentials = new AWS.EC2MetadataCredentials();
 
 // Create EC2 service object
 var ec2 = new AWS.EC2({ apiVersion: '2016-11-15' });
 
 var params = {
 	Description: 'This is my root volume snapshot.',
-	VolumeId: 'vol-1234567890abcdef0'
+	VolumeId: 'vol-05a7e7be288c34e7a'
 };
 ec2.createSnapshot(params, function(err, data) {
 	if (err)
@@ -20,7 +22,7 @@ ec2.createSnapshot(params, function(err, data) {
 		SnapshotId: 'snap-066877671789bd71b',
 		State: 'pending',
 		Tags: [],
-		VolumeId: 'vol-1234567890abcdef0',
+		VolumeId: 'vol-05a7e7be288c34e7a',
 		VolumeSize: 20
 	};
 });
