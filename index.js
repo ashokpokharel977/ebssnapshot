@@ -15,13 +15,13 @@ var volumeParams = {
 	]
 };
 function getVolumeId() {
-	ec2.describeVolumes(volumeParams, (err, data) => {
+	var response = ec2.describeVolumes(volumeParams, (err, data) => {
 		if (err) console.log(err, err.stack);
 		else {
 			console.log(data.Volumes[0].VolumeId);
-			return data;
 		}
 	});
+	return response;
 }
 console.log(getVolumeId());
 
