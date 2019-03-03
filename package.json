@@ -1,0 +1,14 @@
+{
+  "name": "awsprojects",
+  "version": "1.0.0",
+  "description": "ebsbackup",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "author": "Ashok Pokharel",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.413.0"
+  }
+}
