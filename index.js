@@ -4,6 +4,10 @@ var AWS = require('aws-sdk');
 //AWS.config.loadFromPath('./config.json');
 AWS.config.region = 'us-east-1';
 AWS.config.credentials = new AWS.EC2MetadataCredentials();
+var meta = new AWS.MetadataService();
+meta.request('/latest/meta-data/block-device-mapping/', function(err, data) {
+	console.log(data);
+});
 
 // Create EC2 service object
 var ec2 = new AWS.EC2({ apiVersion: '2016-11-15' });
