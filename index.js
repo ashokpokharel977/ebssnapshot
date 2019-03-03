@@ -16,18 +16,14 @@ var volumeParams = {
 		}
 	]
 };
-volumeid = '';
-volumeid = ec2.describeVolumes(volumeParams, function(err, data, volumeid) {
+ec2.describeVolumes(volumeParams, function(err, data) {
 	if (err) console.log(err, err.stack);
 	else {
-		// an error occurred
 		console.log(data.Volumes[0].VolumeId);
 		volumeid = data.Volumes[0].VolumeId;
-		return volumeid;
 	}
 });
-//console.log(volumeid);
-
+console.log(volumeid);
 // var params = {
 // 	Description: 'This is my root volume snapshot.',
 // 	VolumeId: volumeid
