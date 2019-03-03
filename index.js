@@ -20,7 +20,7 @@ volumeid = '';
 ec2.describeVolumes(volumeParams, (err, data) => {
 	if (err) console.log(err, err.stack);
 	else {
-		console.log(data.Volumes[0].VolumeId);
+		//console.log(data.Volumes[0].VolumeId);
 	}
 	volumeid = data.Volumes[0].VolumeId;
 });
