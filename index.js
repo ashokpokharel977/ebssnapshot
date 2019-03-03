@@ -17,7 +17,6 @@ ec2.createSnapshot(params, function(err, data) {
 
 	data = {
 		Description: 'This is my root volume snapshot.',
-		OwnerId: '012345678910',
 		SnapshotId: 'snap-066877671789bd71b',
 		State: 'pending',
 		Tags: [],
