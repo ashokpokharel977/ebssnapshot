@@ -17,7 +17,7 @@ var volumeParams = {
 	]
 };
 
-var volumeid = ec2.describeVolumes(volumeParams, function(err, data, volumeid) {
+var volumeid = ec2.describeVolumes(volumeParams, function(err, data) {
 	if (err) console.log(err, err.stack);
 	else {
 		// an error occurred
