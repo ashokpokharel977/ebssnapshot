@@ -5,8 +5,9 @@ var AWS = require('aws-sdk');
 AWS.config.region = 'us-east-1';
 AWS.config.credentials = new AWS.EC2MetadataCredentials();
 var meta = new AWS.MetadataService();
-meta.request('/latest/meta-data/block-device-mapping/ebs1', function(err, data) {
+meta.request('/latest/meta-data/block-device-mapping', function(err, data) {
 	console.log(data);
+	console.log(err);
 });
 
 // Create EC2 service object
