@@ -21,7 +21,7 @@ var request = ec2.describeVolumes(volumeParams, function(err, data) {
 	if (err) console.log(err, err.stack);
 	else {
 		// an error occurred
-		console.log(data.Volumes[0].VolumeId);
+		//console.log(data.Volumes[0].VolumeId);
 	}
 });
 request.on('success', function(response) {
