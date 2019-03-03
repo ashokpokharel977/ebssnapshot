@@ -26,7 +26,7 @@ volumeid = ec2.describeVolumes(volumeParams, function(err, data, volumeid) {
 		return volumeid;
 	}
 });
-console.log(volumeid);
+//console.log(volumeid);
 
 // var params = {
 // 	Description: 'This is my root volume snapshot.',
