@@ -17,7 +17,7 @@ var volumeParams = {
 	]
 };
 
-ec2.describeVolumes(volumeParams, function() {
+ec2.describeVolumes(volumeParams, function(err, data) {
 	if (err)
 		console.log(err, err.stack); // an error occurred
 	else console.log(data); // successful response
