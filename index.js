@@ -19,7 +19,7 @@ var result = request.promise();
 result.then(function(data) {
 	console.log(data.Volumes[0].VolumeId);
 });
-
+console.log(result);
 // var params = {
 // 	Description: 'This is my root volume snapshot.',
 // 	VolumeId: volumeid
