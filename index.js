@@ -14,20 +14,15 @@ var volumeParams = {
 		}
 	]
 };
-function getVolumeId() {
-	var response = ec2.describeVolumes(volumeParams, (err, data) => {
-		if (err) console.log(err, err.stack);
-		else {
-			console.log(data.Volumes[0].VolumeId);
-		}
-	});
-	return response;
-}
-console.log(getVolumeId());
+var request = ec2.describeVolumes(volumeParams);
+var result = request.promise();
+result.then(function(data) {
+	console.log(data.Volumes[0].VolumeId);
+});
 
 // var params = {
 // 	Description: 'This is my root volume snapshot.',
-// 	VolumeId: getVolumeId()
+// 	VolumeId: volumeid
 // };
 // ec2.createSnapshot(params, function(err, data) {
 // 	if (err)
