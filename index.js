@@ -16,16 +16,15 @@ var volumeParams = {
 		}
 	]
 };
-
-var request = ec2.describeVolumes(volumeParams, function(err, data) {
+volumeid = '';
+ec2.describeVolumes(volumeParams, function(err, data, volumeid) {
 	if (err) console.log(err, err.stack);
 	else {
 		// an error occurred
-		//console.log(data.Volumes[0].VolumeId);
+		console.log(data.Volumes[0].VolumeId);
+		volumeid = data.Volumes[0].VolumeId;
+		return volumeid;
 	}
-});
-request.on('success', function(response) {
-	console.log(response.data);
 });
 
 // var params = {
