@@ -30,10 +30,7 @@ ec2.describeVolumes(volumeParams, function() {
 			data = {
 				Description: 'This is my root volume snapshot.',
 				SnapshotId: 'snap-066877671789bd71b',
-				State: 'pending',
-				Tags: [],
-				VolumeId: data.Volumes[0].VolumeId,
-				VolumeSize: 20
+				State: 'pending'
 			};
 		});
 	}
