@@ -14,26 +14,27 @@ var volumeParams = {
 		}
 	]
 };
-var request = ec2.describeVolumes(volumeParams);
-var result = request.promise();
-result.then(function(data) {
-	console.log(data.Volumes[0].VolumeId);
-	var params = {
-		Description: 'This is my root volume snapshot.',
-		VolumeId: data.Volumes[0].VolumeId
-	};
-	ec2.createSnapshot(params, function(err, data) {
-		if (err)
-			console.log(err, err.stack); // an error occurred
-		else console.log(data); // successful response
-
-		data = {
+ec2.describeVolumes(volumeParams, function() {
+	if (err) console.log(err, err.stack);
+	else {
+		console.log(data);
+		var params = {
 			Description: 'This is my root volume snapshot.',
-			SnapshotId: 'snap-066877671789bd71b',
-			State: 'pending',
-			Tags: [],
-			VolumeId: data.Volumes[0].VolumeId,
-			VolumeSize: 20
+			VolumeId: data.Volumes[0].VolumeId
 		};
-	});
+		ec2.createSnapshot(params, function(err, data) {
+			if (err)
+				console.log(err, err.stack); // an error occurred
+			else console.log(data); // successful response
+
+			data = {
+				Description: 'This is my root volume snapshot.',
+				SnapshotId: 'snap-066877671789bd71b',
+				State: 'pending',
+				Tags: [],
+				VolumeId: data.Volumes[0].VolumeId,
+				VolumeSize: 20
+			};
+		});
+	}
 });
